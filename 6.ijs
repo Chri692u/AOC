@@ -15,4 +15,4 @@ oneDay =: {{
 }}
 
 days =: 80
-solution = oneDay^:80 input 
+solution = #(oneDay^:80 input) 
