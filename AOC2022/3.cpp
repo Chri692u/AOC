@@ -6,17 +6,17 @@
 int main(){
     //Rank based on index + 1
     std::string ranks = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::vector<char> item_types;
+    std::string item_types;
     int sum = 0;
+    
     //Backpack input
-    std::vector<std::string> backpack = {"vJrwpWtwJgWrhcsFMMfFFhFp", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-                                         "PmmdzqPrVvPwwTWBwg", "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-                                         "ttgJtRGJQctTZtZT", "CrZsJsPPZsGzwwsLwLmpwMDw"};
+    std::vector<std::string> backpack = {"vJrwpWtwJgWrhcsFMMfFFhFp", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL", "PmmdzqPrVvPwwTWBwg",
+                                         "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn", "ttgJtRGJQctTZtZT", "CrZsJsPPZsGzwwsLwLmpwMDw"};
 
     //Find matching items in compartments
     for (std::string str : backpack){
         int i = 0, mid = str.size() / 2, j = mid;
-        while(true){
+        for(;;){
             if (str.at(i) == str.at(j)){
                 item_types.push_back(str.at(i));
                 break;
