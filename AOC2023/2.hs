@@ -2,14 +2,15 @@ import Text.Parsec
 import Text.Parsec.String (Parser)
 import Data.Maybe (listToMaybe)
 import qualified Data.Text as T
+import Text.XHtml (color)
 
 data Color = Blue | Green | Red deriving (Show)
 
-data Game = Game { gameId :: Int
-                                 , maxBlue :: Maybe Int
-                                 , maxGreen :: Maybe Int
-                                 , maxRed :: Maybe Int
-                                 } deriving (Show)
+data Game = Game { gameId :: Int, 
+                   maxBlue :: Maybe Int,
+                   maxGreen :: Maybe Int,
+                   maxRed :: Maybe Int
+                } deriving (Show)
 
 gameIdParser :: Parser Int
 gameIdParser = do
@@ -19,6 +20,7 @@ gameIdParser = do
     spaces
     return $ read id
 
+colorCounts :: Parser (String, Int)
 colorCounts = do
     count <- many1 digit
     space
@@ -51,7 +53,6 @@ gamesParser = many1 gameParser
 main :: IO ()
 main = do
     input <- readFile "./inputs/2.txt"
-    -- split string on \n
     let games =  parse gamesParser "" input
     case games of
         Left err -> print err
