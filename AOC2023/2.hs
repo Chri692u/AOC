@@ -2,7 +2,6 @@ import Text.Parsec
 import Text.Parsec.String (Parser)
 import Data.Maybe (listToMaybe)
 import qualified Data.Text as T
-import Text.XHtml (color)
 
 data Color = Blue | Green | Red deriving (Show)
 
